@@ -82,14 +82,14 @@ local function RandomString(Length)
 	return String
 end
 
-local ProtectInstance = loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/fatesc/fates-esp/main/ProtectInstance.lua"))();
-
 local function InitUI(UI)
 	UI.DisplayOrder = 69420
 	UI.ResetOnSpawn = false
 	UI.Name = RandomString(10)
 	MainUI = UI
-	ProtectInstance(UI);
+	if syn and syn.protect_gui then
+		syn.protect_gui(UI)
+	end
 	UI.Parent = CoreGui
 	
 
